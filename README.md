@@ -6,4 +6,3 @@ Siga as instruções do [slide](https://dvcirilo-ifrn.github.io/pweb/slides/aula
 
 ## Equipe
 - Luanna Davi
-- Pessoa 2
