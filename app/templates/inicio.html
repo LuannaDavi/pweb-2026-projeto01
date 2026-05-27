@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block titulo %}Início — Auto da Compadecida{% endblock %}
 
@@ -111,33 +112,6 @@
         color: rgba(245,237,214,0.85);
     }
 
-  .galeria-titulo {
-        font-family: 'Bebas Neue', sans-serif;
-        letter-spacing: 4px;
-        color: var(--amarelo);
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .galeria {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.75rem;
-    }
-
-    .galeria img {
-        width: 100%;
-        aspect-ratio: 4/3;
-        object-fit: cover;
-        border: 2px solid rgba(232,184,75,0.2);
-        border-radius: 3px;
-        transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .galeria img:hover {
-        border-color: var(--amarelo);
-        transform: scale(1.02);
-    }
 </style>
 {% endblock %}
 
@@ -149,7 +123,7 @@
         <p>{{ filme.descricao }}</p>
     </div>
     <div class="hero-imagem">
-        <img src="{{ filme.imagem_principal }}" alt="Pôster do filme Auto da Compadecida">
+        <img src="{% static 'imagens/poster.jpg' %}" alt="Pôster do filme Auto da Compadecida">
         <span class="badge">{{ filme.ano }}</span>
     </div>
 </section>
@@ -189,11 +163,4 @@
     <p>{{ filme.sinopse }}</p>
 </div>
 
-
-<h2 class="galeria-titulo">Galeria</h2>
-<div class="galeria">
-    {% for imagem in filme.galeria %}
-    <img src="{{ imagem }}" alt="Cena do filme">
-    {% endfor %}
-</div>
 {% endblock %}

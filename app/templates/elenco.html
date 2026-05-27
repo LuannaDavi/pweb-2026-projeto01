@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block titulo %}Elenco: Auto da Compadecida{% endblock %}
 
 {% block css %}
@@ -101,7 +101,7 @@
 <div class="elenco-grid">
     {% for personagem in elenco %}
     <div class="card">
-        <img class="card-foto" src="{{ personagem.foto }}" alt="Foto de {{ personagem.nome }}">
+        <img class="card-foto" src="{% static personagem.foto %}" alt="Foto de {{ personagem.nome }}">
         <div class="card-corpo">
             <p class="card-personagem">{{ personagem.nome }}</p>
             <p class="card-ator">interpretado por {{ personagem.ator }}</p>

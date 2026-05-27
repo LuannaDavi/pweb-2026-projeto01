@@ -26,12 +26,6 @@ def inicio(request):
             "Senhora da Compadecida — a única capaz de interceder por eles."
         ),
         
-        "imagem_principal": "https://upload.wikimedia.org/wikipedia/pt/4/4e/Auto_da_compadecida.jpg",
-        "galeria": [
-            "https://upload.wikimedia.org/wikipedia/pt/4/4e/Auto_da_compadecida.jpg",
-            "https://upload.wikimedia.org/wikipedia/pt/4/4e/Auto_da_compadecida.jpg",
-            "https://upload.wikimedia.org/wikipedia/pt/4/4e/Auto_da_compadecida.jpg",
-        ],
     }
     return render(request, "inicio.html", {"filme": filme})
 
@@ -45,7 +39,7 @@ def elenco(request):
             "idade": 28,
             "posicao": "Protagonista",
             "origem": "Taperoá, PB",
-            "foto": "https://i.imgur.com/placeholder.jpg",
+            "foto": "imagens/joao grilo.jpg",
         },
         {
             "nome": "Chicó",
@@ -53,7 +47,7 @@ def elenco(request):
             "idade": 26,
             "posicao": "Protagonista",
             "origem": "Taperoá, PB",
-            "foto": "https://i.imgur.com/placeholder.jpg",
+            "foto": "imagens/chico.jpg",
         },
         {
             "nome": "Nossa Senhora",
@@ -61,7 +55,7 @@ def elenco(request):
             "idade": 50,
             "posicao": "A Compadecida",
             "origem": "Céu",
-            "foto": "https://i.imgur.com/placeholder.jpg",
+            "foto": "imagens/nossa senhora.jpg",
         },
         {
             "nome": "O Diabo",
@@ -69,7 +63,7 @@ def elenco(request):
             "idade": 40,
             "posicao": "Antagonista",
             "origem": "Inferno",
-            "foto": "https://i.imgur.com/placeholder.jpg",
+            "foto": "imagens/diabo.jpg",
         },
         {
             "nome": "Severino de Aracaju",
@@ -77,7 +71,7 @@ def elenco(request):
             "idade": 45,
             "posicao": "Cangaceiro",
             "origem": "Aracaju, SE",
-            "foto": "https://i.imgur.com/placeholder.jpg",
+            "foto": "imagens/severino.jpg",
         },
         {
             "nome": "Padre João",
@@ -85,7 +79,7 @@ def elenco(request):
             "idade": 60,
             "posicao": "Padre da cidade",
             "origem": "Taperoá, PB",
-            "foto": "https://i.imgur.com/placeholder.jpg",
+            "foto": "imagens/padre joao.jpg",
         },
         {
             "nome": "Bispo Dom Virgílio",
@@ -93,7 +87,7 @@ def elenco(request):
             "idade": 55,
             "posicao": "Bispo",
             "origem": "Recife, PE",
-            "foto": "https://i.imgur.com/placeholder.jpg",
+            "foto": "imagens/bispo.jpg",
         },
         {
             "nome": "Coronel Antônio Moraes",
@@ -101,7 +95,7 @@ def elenco(request):
             "idade": 58,
             "posicao": "Coronel",
             "origem": "Taperoá, PB",
-            "foto": "https://i.imgur.com/placeholder.jpg",
+            "foto": "imagens/major antonio.jpg",
         },
         {
             "nome": "Dora",
@@ -109,7 +103,7 @@ def elenco(request):
             "idade": 30,
             "posicao": "Esposa do padeiro",
             "origem": "Taperoá, PB",
-            "foto": "https://i.imgur.com/placeholder.jpg",
+            "foto": "imagens/dora.jpg",
         },
         {
             "nome": "Padeiro",
@@ -117,7 +111,7 @@ def elenco(request):
             "idade": 35,
             "posicao": "Padeiro da cidade",
             "origem": "Taperoá, PB",
-            "foto": "https://i.imgur.com/placeholder.jpg",
+            "foto": "imagens/padeiro.jpg",
         },
         {
             "nome": "Jesus Cristo",
@@ -125,21 +119,13 @@ def elenco(request):
             "idade": 33,
             "posicao": "Juiz do julgamento",
             "origem": "Jerusalém",
-            "foto": "https://i.imgur.com/placeholder.jpg",
+            "foto": "imagens/jesus.jpg",
         },
     ]
     return render(request, "elenco.html", {"elenco": elenco})
 
 def sobre(request):
-    filme = {
-        "titulo": "Auto da Compadecida",
-        "direcao": "Guel Arraes",
-        "roteiro": "Guel Arraes, João Falcão, Adriana Falcão",
-        "ano": "2000",
-        "genero": "Comédia / Drama",
-        "duracao": "104 minutos",
-        "baseado_em": "Peça de Ariano Suassuna (1955)",
-        "premios": "7 prêmios Grande Otelo",
+    sobre = {
         "historia": (
             "Auto da Compadecida é um filme brasileiro lançado em 2000, dirigido por Guel Arraes. "
             "Baseado na clássica peça de Ariano Suassuna de 1955, o filme é uma adaptação da "
@@ -155,4 +141,4 @@ def sobre(request):
         ),
     }
 
-    return render(request, "sobre.html", {"sobre": filme})
+    return render(request, "sobre.html", {"sobre": sobre})
