@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block titulo %}Elenco: Auto da Compadecida{% endblock %}
+
+{% block css %}
+<style>
+    .page-header h1 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 3rem;
+        letter-spacing: 5px;
+        color: var(--amarelo);
+    }
+
+    .page-header p {
+        font-style: italic;
+        color: rgba(245,237,214,0.55);
+        margin-top: 0.4rem;
+    }
+
+    /* ── GRID DE CARDS ── */
+    .elenco-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(232,184,75,0.2);
+        border-radius: 4px;
+        overflow: hidden;
+        transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+        border-color: var(--amarelo);
+        transform: translateY(-4px);
+    }
+
+    .card-foto {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+        border-bottom: 3px solid var(--laranja);
+    }
+
+    .card-corpo {
+        padding: 1rem 1.1rem;
+    }
+
+    .card-personagem {
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 2px;
+        font-size: 1.3rem;
+        color: var(--amarelo);
+        line-height: 1;
+        margin-bottom: 0.2rem;
+    }
+
+    .card-ator {
+        font-style: italic;
+        font-size: 0.9rem;
+        color: rgba(245,237,214,0.55);
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.8rem;
+        border-bottom: 1px solid rgba(232,184,75,0.15);
+    }
+
+    .card-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .card-info span {
+        font-size: 0.85rem;
+        color: rgba(245,237,214,0.75);
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .card-info .chave {
+        color: var(--laranja);
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 1px;
+        font-size: 0.8rem;
+        min-width: 70px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Elenco</h1>
+    <p>Personagens</p>
+</div>
+
+<div class="elenco-grid">
+    {% for personagem in elenco %}
+    <div class="card">
+        <img class="card-foto" src="{{ personagem.foto }}" alt="Foto de {{ personagem.nome }}">
+        <div class="card-corpo">
+            <p class="card-personagem">{{ personagem.nome }}</p>
+            <p class="card-ator">interpretado por {{ personagem.ator }}</p>
+            <div class="card-info">
+                <span><span class="chave">Idade</span> {{ personagem.idade }} anos</span>
+                <span><span class="chave">Posição</span> {{ personagem.posicao }}</span>
+                <span><span class="chave">Origem</span> {{ personagem.origem }}</span>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

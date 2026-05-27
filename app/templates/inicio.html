@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block titulo %}Início — Auto da Compadecida{% endblock %}
+
+{% block css %}
+<style>
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        margin-bottom: 3rem;
+    }
+
+    .hero-texto h1 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 4rem;
+        letter-spacing: 4px;
+        color: var(--amarelo);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-texto .subtitulo {
+        font-style: italic;
+        font-size: 1rem;
+        color: rgba(245,237,214,0.55);
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-texto p {
+        font-size: 1.05rem;
+        line-height: 1.9;
+        color: rgba(245,237,214,0.85);
+    }
+
+    .hero-imagem {
+        position: relative;
+    }
+
+    .hero-imagem img {
+        width: 100%;
+        border-radius: 4px;
+        border: 3px solid var(--amarelo);
+        display: block;
+        box-shadow: 8px 8px 0 var(--laranja);
+    }
+
+    .hero-imagem .badge {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        background: var(--vermelho);
+        color: var(--creme);
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        padding: 6px 14px;
+        border: 2px solid var(--amarelo);
+    }
+
+
+    .ficha {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .ficha-item {
+        background: rgba(232,184,75,0.07);
+        border: 1px solid rgba(232,184,75,0.25);
+        border-radius: 3px;
+        padding: 1rem 1.25rem;
+    }
+
+    .ficha-item .label {
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 2px;
+        font-size: 0.75rem;
+        color: var(--laranja);
+        margin-bottom: 0.3rem;
+    }
+
+    .ficha-item .valor {
+        font-size: 1rem;
+        color: var(--creme);
+    }
+
+
+    .sinopse {
+        background: rgba(0,0,0,0.3);
+        border-left: 4px solid var(--amarelo);
+        padding: 1.5rem 2rem;
+        border-radius: 0 4px 4px 0;
+        margin-bottom: 3rem;
+    }
+
+    .sinopse h2 {
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 3px;
+        color: var(--amarelo);
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .sinopse p {
+        line-height: 1.9;
+        color: rgba(245,237,214,0.85);
+    }
+
+  .galeria-titulo {
+        font-family: 'Bebas Neue', sans-serif;
+        letter-spacing: 4px;
+        color: var(--amarelo);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .galeria {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+    }
+
+    .galeria img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        border: 2px solid rgba(232,184,75,0.2);
+        border-radius: 3px;
+        transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .galeria img:hover {
+        border-color: var(--amarelo);
+        transform: scale(1.02);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="hero-texto">
+        <h1>Auto da<br>Compadecida</h1>
+        <p>{{ filme.descricao }}</p>
+    </div>
+    <div class="hero-imagem">
+        <img src="{{ filme.imagem_principal }}" alt="Pôster do filme Auto da Compadecida">
+        <span class="badge">{{ filme.ano }}</span>
+    </div>
+</section>
+
+
+
+<div class="ficha">
+    <div class="ficha-item">
+        <p class="label">Direção</p>
+        <p class="valor">{{ filme.direcao }}</p>
+    </div>
+    <div class="ficha-item">
+        <p class="label">Gênero</p>
+        <p class="valor">{{ filme.genero }}</p>
+    </div>
+    <div class="ficha-item">
+        <p class="label">Duração</p>
+        <p class="valor">{{ filme.duracao }}</p>
+    </div>
+    <div class="ficha-item">
+        <p class="label">Roteiro</p>
+        <p class="valor">{{ filme.roteiro }}</p>
+    </div>
+    <div class="ficha-item">
+        <p class="label">Baseado em</p>
+        <p class="valor">{{ filme.baseado_em }}</p>
+    </div>
+    <div class="ficha-item">
+        <p class="label">Prêmios</p>
+        <p class="valor">{{ filme.premios }}</p>
+    </div>
+</div>
+
+
+<div class="sinopse">
+    <h2>Sinopse</h2>
+    <p>{{ filme.sinopse }}</p>
+</div>
+
+
+<h2 class="galeria-titulo">Galeria</h2>
+<div class="galeria">
+    {% for imagem in filme.galeria %}
+    <img src="{{ imagem }}" alt="Cena do filme">
+    {% endfor %}
+</div>
+{% endblock %}
